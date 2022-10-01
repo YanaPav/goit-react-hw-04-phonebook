@@ -1,0 +1,15 @@
+.form {
+    border: 1px solid black;
+    width: 400px;
+    padding: 20px 10px;
+}
+
+label {
+    display: block;
+}
+
+input {
+    display: block;
+    margin-top: 8px;
+    margin-bottom: 20px;
+}
