@@ -6,18 +6,11 @@ import { Filter } from './Filter/Filter';
 const CONTACTS_KEY = 'contacts';
 
 export const App = () => {
-  const [contacts, setContacts] = useState(isSavedContacts());
-  const [filter, setFilter] = useState('');
-
-  function isSavedContacts() {
-    let savedContacts = [];
+  const [contacts, setContacts] = useState(() => {
     const localStorageContacts = localStorage.getItem(CONTACTS_KEY);
-
-    if (localStorageContacts?.length > 0) {
-      return (savedContacts = JSON.parse(localStorageContacts));
-    }
-    return savedContacts;
-  }
+    return JSON.parse(localStorageContacts) || [];
+  });
+  const [filter, setFilter] = useState('');
 
   useEffect(() => {
     return localStorage.setItem(CONTACTS_KEY, JSON.stringify(contacts));
